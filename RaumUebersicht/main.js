@@ -1,7 +1,7 @@
 
-Vue.component('slider' ,{
+Vue.component('slider', {
 
-    template: `
+  template: `
     <div>
     
             <p>
@@ -29,57 +29,58 @@ Vue.component('slider' ,{
     
     
     `,
-    
-    data() {
-      return {
-          
-        images: ["images/Bild1.jpg", 'images/Bild2.jpg', 'images/Bild3.jpg','images/Bild4.jpg'],
-        currentNumber: 0,
-        timer: null
+
+  data() {
+    return {
+
+      images: ["images/Bild1.jpg", 'images/Bild2.jpg', 'images/Bild3.jpg', 'images/Bild4.jpg'],
+      currentNumber: 0,
+      timer: null
     }
+  },
+
+  mounted: function () {
+    this.startRotation();
+  },
+
+  methods: {
+    startRotation: function () {
+      this.timer = setInterval(this.next, 3000);
     },
 
-    mounted: function () {
-        this.startRotation();
+    stopRotation: function () {
+      clearTimeout(this.timer);
+      this.timer = null;
     },
 
-    methods: {
-        startRotation: function() {
-            this.timer = setInterval(this.next, 3000);
-        },
-
-        stopRotation: function() {
-            clearTimeout(this.timer);
-            this.timer = null;
-        },
-
-        next: function() {
-            this.currentNumber += 1
-        },
-        prev: function() {
-            this.currentNumber -= 1
-        }
+    next: function () {
+      this.currentNumber += 1
     },
-    
-    computed: {
-    	currentImage: function() {
-      	return this.images[Math.abs(this.currentNumber) % this.images.length];
-      }
+    prev: function () {
+      this.currentNumber -= 1
     }
-    
+  },
+
+  computed: {
+    currentImage: function () {
+      return this.images[Math.abs(this.currentNumber) % this.images.length];
+    }
+  }
+
 
 
 })
 
 var app = new Vue({
-    el: '#app',
+  el: '#app',
 
-    data: {
-        room: 'Raum 2'
-        
-    }})
+  data: {
+    room: 'Raum 2'
 
-    
+  }
+})
+
+
 
 
 
