@@ -3,10 +3,11 @@ Vue.component('slider', {
 
   template: `
     <div>
-    
+            <div class="btn">
             <p>
               <a @click="prev" href='#'><img class="prevNextBtn" src="images/prevBtn.png" alt="#" /></a>  <a @click="next" href='#'><img class="prevNextBtn" src="images/nextBtn.png" alt="#" /></a>
             </p>
+            </div>
             
             <transition-group name='fade' tag='div'>
               <div
@@ -21,7 +22,7 @@ Vue.component('slider', {
                      />
             </div>
           </transition-group>
-    
+    </div>
 
     
 
