@@ -39,30 +39,30 @@ Vue.component('slider', {
     }
   },
 
-  mounted: function () {
+  mounted() {
     this.startRotation();
   },
 
   methods: {
-    startRotation: function () {
+    startRotation() {
       this.timer = setInterval(this.next, 3000);
     },
 
-    stopRotation: function () {
+    stopRotation() {
       clearTimeout(this.timer);
       this.timer = null;
     },
 
-    next: function () {
+    next() {
       this.currentNumber += 1
     },
-    prev: function () {
+    prev() {
       this.currentNumber -= 1
     }
   },
 
   computed: {
-    currentImage: function () {
+    currentImage() {
       return this.images[Math.abs(this.currentNumber) % this.images.length];
     }
   }
