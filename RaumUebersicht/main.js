@@ -23,7 +23,7 @@ Vue.component('slider', {
           </transition-group>
     
 
-    </div>
+    
 
 
     
